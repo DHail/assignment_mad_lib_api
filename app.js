@@ -148,8 +148,16 @@ morgan.token('data', (req, res, next) => {
 // ----------------------------------------
 // Routes
 // ----------------------------------------
+const sessionsRouter = require("./routers/sessions");
+app.use("/users", sessionsRouter);
+
 const indexRouter = require("./routers/index");
 app.use("/", indexRouter);
+
+const usersRouter = require("./routers/users");
+app.use("/users", usersRouter);
+
+
 
 // ----------------------------------------
 // Server
