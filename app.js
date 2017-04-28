@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Sessions/Cookies
 // ----------------------------------------
 const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 const cookieSession = require("cookie-session");
 app.use(
   cookieSession({
@@ -25,7 +27,6 @@ app.use(
     keys: [process.env.SESSION_SECRET || "aSg89Tc6lMpn8xwW1"]
   })
 );
-app.use(cookieParser());
 
 // ----------------------------------------
 // Flash Messages
@@ -148,16 +149,14 @@ morgan.token('data', (req, res, next) => {
 // ----------------------------------------
 // Routes
 // ----------------------------------------
-const sessionsRouter = require("./routers/sessions");
-app.use("/users", sessionsRouter);
+const authRouter = require("./routers/auth");
+app.use("/", authRouter);
 
 const indexRouter = require("./routers/index");
 app.use("/", indexRouter);
 
 const usersRouter = require("./routers/users");
 app.use("/users", usersRouter);
-
-
 
 // ----------------------------------------
 // Server

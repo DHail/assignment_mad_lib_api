@@ -5,7 +5,7 @@ const router = express.Router();
 // Index Redirect
 // ----------------------------------------
 router.get("/", (req, res) => {
-  res.render('index');
+  res.redirect('/users/show');
 });
 
 module.exports = router;

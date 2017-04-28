@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/vikingeducation/assignment_mad_lib_api#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "cli-highlight": "^1.1.4",
@@ -27,8 +28,11 @@
     "express": "^4.15.2",
     "express-flash-messages": "^0.1.1",
     "express-handlebars": "^3.0.0",
+    "md5": "^2.2.1",
     "mongoose": "^4.9.5",
+    "mongoose-unique-validator": "^1.0.5",
     "morgan": "^1.8.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "uuid": "^3.0.1"
   }
 }

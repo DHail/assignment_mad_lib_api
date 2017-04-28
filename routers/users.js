@@ -6,11 +6,17 @@ const User = mongoose.model('User');
 const helpers = require('./../helpers');
 const h = helpers.registered;
 
+// ----------------------------------------
+// Registration
+// ----------------------------------------
 router.get("/new", (req, res) => {
   res.render("users/new");
 })
 
-router.post("/", (req, res) => {
+// ----------------------------------------
+// Create User
+// ----------------------------------------
+router.post("/", (req, res, next) => {
   let userParams = {
     fname: req.body.user.fname,
     lname: req.body.user.lname,
@@ -20,8 +26,8 @@ router.post("/", (req, res) => {
 
   User.create(userParams)
     .then((user) => {
-      req.flash('success', 'User created! You may now login.');
-      res.redirect("/sessions/new");
+      req.flash('success', 'User created.');
+      res.redirect("/users/show");
     })
     .catch((e) => {
       if (e.errors) {
@@ -34,5 +40,12 @@ router.post("/", (req, res) => {
       }
     });
 })
+
+// ----------------------------------------
+// Show
+// ----------------------------------------
+router.get('/show', (req, res) => {
+  res.render('users/show');
+});
 
 module.exports = router;
