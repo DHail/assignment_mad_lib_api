@@ -1,0 +1,13 @@
+{
+  "development": {
+    "database": "assignment_mad_lib_api_development",
+    "host": "localhost"
+  },
+  "test": {
+    "database": "assignment_mad_lib_api_test",
+    "host": "localhost"
+  },
+  "production": {
+    "use_env_variable": "MONGO_URL"
+  }
+}
