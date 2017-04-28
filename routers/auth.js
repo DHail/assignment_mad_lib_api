@@ -93,6 +93,35 @@ router.post('/sessions', (req, res, next) => {
 });
 
 // ----------------------------------------
+// Authorize
+// ----------------------------------------
+router.use('/api', (req, res, next) => {
+
+  // Get API token from query or body
+  const token = req.query.token || req.body.token;
+
+  // If we don't have a token
+  // kick'em out
+  if (!token) {
+    res
+      .status(401)
+      .json({ error: 'Unauthorized' });
+    return;
+  }
+
+  // If we have a token find the
+  // user by that token
+  User.findOne({token})
+    .then((user) => {
+
+      // Set the request user
+      req.user = user;
+      next();
+    })
+    .catch(next);
+});
+
+// ----------------------------------------
 // Destroy
 // ----------------------------------------
 const onDestroy = (req, res) => {
