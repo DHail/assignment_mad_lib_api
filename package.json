@@ -33,16 +33,14 @@
     "express": "^4.15.2",
     "express-flash-messages": "^0.1.1",
     "express-handlebars": "^3.0.0",
-    "faker": "^4.1.0",
-    "furious_spinoff": "^1.0.4",
     "jasmine": "^2.6.0",
-    "lodash": "^4.17.4",
     "md5": "^2.2.1",
     "mongoose": "^4.9.6",
     "mongoose-unique-validator": "^1.0.5",
     "morgan": "^1.8.1",
     "qs": "^6.4.0",
+    "sentencer": "^0.1.5",
     "uuid": "^3.0.1",
-    "voca": "^1.3.0"
+    "wordpos": "^1.1.2"
   }
 }

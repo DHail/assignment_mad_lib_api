@@ -18,7 +18,7 @@ describe('App', () => {
 
 
   beforeAll((done) => {
-    server = app.listen(8888, () => {
+    server = app.listen(3000, () => {
       done();
     });
   });
@@ -48,30 +48,13 @@ describe('App', () => {
   // ----------------------------------------
   // API
   // ----------------------------------------
-  
+
   it('returns an array of nouns equal to count when count provided', (done) => {
     request.get(apiUrlFor('nouns', { count: 5 }), (err, res, body) => {
       let result = j(body);
-      expect(result.nouns.length).toEqual(5);
+      expect(result.length).toEqual(5);
       done();
     });
   });
 
-
-  // ----------------------------------------
-  // 
-  // ----------------------------------------
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+});

@@ -2,13 +2,6 @@ const express = require("express");
 const app = express();
 
 // ----------------------------------------
-// Dotenv
-// ----------------------------------------
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-
-// ----------------------------------------
 // Body Parser
 // ----------------------------------------
 const bodyParser = require("body-parser");
@@ -154,6 +147,9 @@ app.use("/", authRouter);
 
 const indexRouter = require("./routers/index");
 app.use("/", indexRouter);
+
+const apiRouter = require("./routers/api");
+app.use("/api", apiRouter);
 
 const usersRouter = require("./routers/users");
 app.use("/users", usersRouter);
